@@ -29,7 +29,8 @@ INSERT INTO `call_history` (`id`, `candidate`, `date`, `status`) VALUES
 -- Dumping structure for table rtb2016.candidate
 CREATE TABLE IF NOT EXISTS `candidate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sn` varchar(50) NOT NULL,
+  `mop_id` varchar(50) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `fullname` varchar(100) NOT NULL,
   `nickname` varchar(100) NOT NULL,
   `dob` date NOT NULL,
@@ -93,15 +94,19 @@ CREATE TABLE IF NOT EXISTS `candidate` (
   `user_update` int(11) NOT NULL,
   `date_update` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
--- Dumping data for table rtb2016.candidate: ~4 rows (approximately)
+-- Dumping data for table rtb2016.candidate: ~8 rows (approximately)
 /*!40000 ALTER TABLE `candidate` DISABLE KEYS */;
-INSERT INTO `candidate` (`id`, `sn`, `fullname`, `nickname`, `dob`, `tlp`, `email`, `fb`, `tw`, `ins`, `dist_date`, `interviewer`, `status`, `audit`, `valid`, `called`, `program`, `minute`, `smoker`, `resign`, `job`, `job_type`, `brand`, `sim`, `sim_no`, `sim_exp`, `motor`, `motor_desc`, `sick`, `sick_desc`, `passport`, `passport_name`, `passport_no`, `passport_exp`, `barcelona`, `travel`, `campaign`, `campaign_desc`, `campaign_same`, `campaign_same_price`, `campaign_same_name`, `i1`, `i2`, `m1`, `m2`, `m3`, `m4`, `m5`, `n1`, `n2`, `n3`, `n4`, `n5`, `t1`, `t2`, `t3`, `t4`, `t5`, `remark`, `overall`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
-	(1, '', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', '', '', '', '2016-04-13', 14, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 18:40:28', 0, '0000-00-00 00:00:00'),
-	(2, '', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', '', '', '', '2016-04-13', 14, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 18:40:28', 0, '0000-00-00 00:00:00'),
-	(3, '', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', '', '', '', '2016-04-13', 15, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 19:09:15', 0, '0000-00-00 00:00:00'),
-	(4, '', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', 'teguh_fb', 'teguh_tw', 'ins_teguh', '2016-04-13', 15, 13, 0, 1, 1, 1, 1, 1, 1, 'Karyawan', 'Teknologi', 'A Mild', 1, '1234567890', '2017-08-06', 1, 'ninja', 1, 'kecelakaan', 1, 'Teguh Santoso', '123212321', '2018-02-01', 1, 'usa, korea', 1, 'never say maybe', 1, 1, 'class sensation', 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 1, 2, 3, 1, 2, 'REMARKS', 'OVERALL INSIGHTS', 12, '2016-04-13 19:09:15', 0, '0000-00-00 00:00:00');
+INSERT INTO `candidate` (`id`, `mop_id`, `username`, `fullname`, `nickname`, `dob`, `tlp`, `email`, `fb`, `tw`, `ins`, `dist_date`, `interviewer`, `status`, `audit`, `valid`, `called`, `program`, `minute`, `smoker`, `resign`, `job`, `job_type`, `brand`, `sim`, `sim_no`, `sim_exp`, `motor`, `motor_desc`, `sick`, `sick_desc`, `passport`, `passport_name`, `passport_no`, `passport_exp`, `barcelona`, `travel`, `campaign`, `campaign_desc`, `campaign_same`, `campaign_same_price`, `campaign_same_name`, `i1`, `i2`, `m1`, `m2`, `m3`, `m4`, `m5`, `n1`, `n2`, `n3`, `n4`, `n5`, `t1`, `t2`, `t3`, `t4`, `t5`, `remark`, `overall`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
+	(1, '', '', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', '', '', '', '2016-04-13', 0, 16, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 18:40:28', 0, '0000-00-00 00:00:00'),
+	(2, '', '', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', '', '', '', '2016-04-13', 0, 22, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 18:40:28', 0, '0000-00-00 00:00:00'),
+	(3, '', '', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', '', '', '', '2016-04-13', 0, 21, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-13 19:09:15', 0, '0000-00-00 00:00:00'),
+	(4, '', '', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', 'teguh_fb', 'teguh_tw', 'ins_teguh', '2016-04-13', 15, 13, 0, 1, 1, 1, 1, 1, 1, 'Karyawan', 'Teknologi', 'A Mild', 1, '1234567890', '2017-08-06', 1, 'ninja', 1, 'kecelakaan', 1, 'Teguh Santoso', '123212321', '2018-02-01', 1, 'usa, korea', 1, 'never say maybe', 1, 1, 'class sensation', 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 1, 2, 3, 1, 2, 'REMARKS', 'OVERALL INSIGHTS', 12, '2016-04-13 19:09:15', 0, '0000-00-00 00:00:00'),
+	(5, '11111', 'adam_pras', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', '', '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-14 11:59:37', 0, '0000-00-00 00:00:00'),
+	(6, '22222', 'teguh_san', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', '', '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-14 11:59:37', 0, '0000-00-00 00:00:00'),
+	(7, '11111', 'adam_pras', 'Adam Prasetia', 'damz', '1989-02-16', '083817321885', 'adam.prasetia@gmail.com', 'adam_fb', 'adam_tw', 'adam_ins', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-14 12:03:08', 0, '0000-00-00 00:00:00'),
+	(8, '22222', 'teguh_san', 'Teguh Santoso', 'teguh', '1987-10-04', '081234567876', 'teguh@adirect.web.id', 'teguh_fb', 'teguh_tw', 'teguh_ins', '0000-00-00', 0, 0, 0, 0, 1, 1, 0, 0, 0, '', '', '', 0, '', '0000-00-00', 0, '', 0, '', 0, '', '', '0000-00-00', 0, '', 0, '', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 12, '2016-04-14 12:03:08', 0, '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `candidate` ENABLE KEYS */;
 
 
@@ -127,7 +132,7 @@ INSERT INTO `candidate_status` (`id`, `name`, `parent`, `user_create`, `date_cre
 	(13, 'Not Participate', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(14, 'Success', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(15, 'Wrong Number', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-	(16, 'Call Back', 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+	(16, 'Call Back', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(21, 'No Answer', 2, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(22, 'Busy', 2, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(23, 'Reject', 2, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
@@ -156,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table rtb2016.user: ~7 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `level`, `ip_login`, `date_login`, `user_agent`, `status`, `user_create`, `date_create`, `user_update`, `date_update`) VALUES
-	(12, 'Adam Prasetia', 'damz', '202cb962ac59075b964b07152d234b70', 1, '::1', '2016-04-13 18:13:15', 'Windows 8.1(Google Chrome 49.0.2623.112)', 1, 0, '0000-00-00 00:00:00', 12, '2016-02-01 23:44:22'),
+	(12, 'Adam Prasetia', 'damz', '202cb962ac59075b964b07152d234b70', 1, '::1', '2016-04-14 21:36:26', 'Windows 8.1(Google Chrome 49.0.2623.112)', 1, 0, '0000-00-00 00:00:00', 12, '2016-02-01 23:44:22'),
 	(13, 'Teguh Santoso', 'teguh', 'e2f9f842fd8e1ae90dc428d39cab7167', 1, '127.0.0.1', '2016-02-01 17:11:28', 'Windows 7(Google Chrome 48.0.2564.97)', 1, 1, '2016-02-01 17:07:02', 0, '0000-00-00 00:00:00'),
 	(14, 'Jaka', 'jack', '202cb962ac59075b964b07152d234b70', 3, '', '0000-00-00 00:00:00', '', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 	(15, 'Bhakti', 'bray', '202cb962ac59075b964b07152d234b70', 3, '', '0000-00-00 00:00:00', '', 1, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),

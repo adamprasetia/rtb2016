@@ -2,8 +2,8 @@
 	<h1>
 		Export Data
 	</h1>
-	<ol class="breadcrumb pull-right">
-		<li><?php echo anchor('home','Dashboard')?></li>
+	<ol class="breadcrumb">
+		<li><?php echo anchor('home','<span class="glyphicon glyphicon-home"></span> Home')?></li>
 		<li class="active">Export</li>
 	</ol>
 </section>

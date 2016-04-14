@@ -3,7 +3,7 @@
 		User
 		<small>List</small>
 	</h1>
-	<ol class="breadcrumb pull-right">
+	<ol class="breadcrumb">
 		<li><?php echo anchor('home','<span class="glyphicon glyphicon-home"></span> Home')?></li>
 		<li class="active">List</li>
 	</ol>
