@@ -14,12 +14,5 @@ $(document).ready(function(){
 		changeMonth: true,
 		changeYear: true,
 		dateFormat: 'dd/mm/yy' 		 
-	});	
-	
-	$('.input-uang').priceFormat({
-		prefix: '',
-		thousandsSeparator: ',',
-		centsLimit: 0
-	});
-
+	});		
 });

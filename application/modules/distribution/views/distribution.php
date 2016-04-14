@@ -19,6 +19,7 @@
 				<h1>
 					<?php echo anchor('distribution/clear'.get_query_string(),'Clear All',array('class'=>'btn btn-warning','onclick'=>"return confirm('Are you sure ?')")) ?>
 					<?php echo anchor('distribution/clear_callback'.get_query_string(),'Clear for Callback',array('class'=>'btn btn-warning','onclick'=>"return confirm('Are you sure ?')")) ?>
+					<?php echo anchor('distribution/clear_no_answer'.get_query_string(),'Clear for No Answer/Busy',array('class'=>'btn btn-warning','onclick'=>"return confirm('Are you sure ?')")) ?>
 				</h1>
 			</div>
 		</div>

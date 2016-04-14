@@ -100,7 +100,6 @@
 	<script type="text/javascript" src="<?php echo base_url('../assets/jquery-ui-1.11.2/jquery-ui.min.js')?>"/></script>
 	<script type="text/javascript" src="<?php echo base_url('../assets/bootstrap-3.3.5-dist/js/bootstrap.min.js')?>"/></script>
 	<script type="text/javascript" src="<?php echo base_url('../assets/AdminLTE-2.3.0/js/app.js')?>"/></script>
-	<script type="text/javascript" src="<?php echo base_url('../assets/price_format_plugin.js')?>"/></script>
 	<script type="text/javascript" src="<?php echo base_url('../assets/AdminLTE-2.3.0/plugins/slimScroll/jquery.slimscroll.min.js')?>"/></script>
 	<script type="text/javascript" src="<?php echo base_url('../assets/AdminLTE-2.3.0/plugins/morris/raphael-min.js')?>"/></script>
 	<script type="text/javascript" src="<?php echo base_url('../assets/AdminLTE-2.3.0/plugins/morris/morris.min.js')?>"/></script>

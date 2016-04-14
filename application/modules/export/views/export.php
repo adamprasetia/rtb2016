@@ -14,10 +14,6 @@
 	<div class="box">
 		<div class="box-body">
 			<div class="form-group form-inline">
-				<?php echo form_label('Event','event',array('class'=>'control-label'))?>
-				<?php echo form_dropdown('event',$this->master_model->dropdown('event','Event'),set_value('event',''),'class="form-control"')?>
-			</div>			
-			<div class="form-group form-inline">
 				<?php echo form_label('Date','date',array('class'=>'control-label'))?>
 				<?php echo form_input(array('name'=>'date_from','class'=>'form-control input-tanggal','size'=>'10'))?>
 				<?php echo form_input(array('name'=>'date_to','class'=>'form-control input-tanggal','size'=>'10'))?>

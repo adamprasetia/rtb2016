@@ -28,39 +28,37 @@
 			<div class="table-responsive">
 				<table class="table table-bordered text-center">
 					<tr>
-						<th rowspan='2' style="vertical-align:middle">Event</th>
 						<th rowspan='2' style="vertical-align:middle">Total Proses</th>
-						<th colspan='5'>Connect</th>
+						<th colspan='6'>Connect</th>
 						<th rowspan='2' style="vertical-align:middle">Total Connect</th>
-						<th colspan='4'>Not Connect</th>
+						<th colspan='3'>Not Connect</th>
 						<th rowspan='2' style="vertical-align:middle">Total Not Connect</th>
 						<th rowspan='2' style="vertical-align:middle">Total</th>
 					</tr>
 					<tr>
-						<th>Attend</th>
-						<th>Consider Attending</th>
-						<th>Not Attend</th>
+						<th>No Smokers</th>
+						<th>Resign</th>
+						<th>Not Participate</th>
+						<th>Success</th>
 						<th>Wrong Number</th>
-						<th>Call Back</th>
+						<th>Callback</th>
 						<th>No Answer</th>
 						<th>Busy</th>
 						<th>Reject</th>
-						<th>Foreign Number</th>
 					</tr>
 					<?php foreach ($report_status as $row): ?>
 						<tr>
-							<td><?php echo $row->event ?></td>
 							<td><b><?php echo number_format($row->proses) ?></b></td>
-							<td><?php echo number_format($row->att) ?></td>
-							<td><?php echo number_format($row->con_att) ?></td>
-							<td><?php echo number_format($row->not_att) ?></td>
-							<td><?php echo number_format($row->wn) ?></td>
-							<td><?php echo number_format($row->cb) ?></td>
+							<td><?php echo number_format($row->no_smoker) ?></td>
+							<td><?php echo number_format($row->resign) ?></td>
+							<td><?php echo number_format($row->not_participate) ?></td>
+							<td><?php echo number_format($row->success) ?></td>
+							<td><?php echo number_format($row->wrong) ?></td>
+							<td><?php echo number_format($row->callback) ?></td>
 							<td><b class="label label-success"><?php echo number_format($row->total_c) ?></b></td>
 							<td><?php echo number_format($row->na) ?></td>
 							<td><?php echo number_format($row->bus) ?></td>
 							<td><?php echo number_format($row->rej) ?></td>
-							<td><?php echo number_format($row->fn) ?></td>
 							<td><b class="label label-danger"><?php echo number_format($row->total_n) ?></b></td>
 							<td><b><?php echo number_format($row->total) ?></b></td>
 						</tr>						

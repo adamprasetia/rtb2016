@@ -179,6 +179,10 @@
 								<td><input name="tlp" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->tlp)?$candidate->tlp:'') ?>"></td>
 							</tr>
 							<tr>
+								<td><label class="input-sm">Email</label></td>
+								<td><input name="email" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->email)?$candidate->email:'') ?>"></td>
+							</tr>
+							<tr>
 								<td><label class="input-sm">Facebook</label></td>
 								<td><input name="fb" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->fb)?$candidate->fb:'') ?>"></td>
 							</tr>
@@ -205,577 +209,578 @@
 						</table>
 					</div>				
 				</div>
-			</div>
-			<div class="box box-sim">
-				<div class="box-body">
-					<h3>APAKAH ANDA MEMILIKI SIM C ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'sim1','name'=>'sim','value'=>'1','checked'=>($candidate->sim==1?true:false))) ?>
-							Ya
-						</label>
+			
+				<div class="box box-sim">
+					<div class="box-body">
+						<h3>APAKAH ANDA MEMILIKI SIM C ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'sim1','name'=>'sim','value'=>'1','checked'=>($candidate->sim==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'sim2','name'=>'sim','value'=>'2','checked'=>($candidate->sim==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'sim2','name'=>'sim','value'=>'2','checked'=>($candidate->sim==2?true:false))) ?>
-							Tidak
-						</label>
+					<div class="box-footer box-sim-ya hide">
+						<table class="table table-striped table-bordered">
+							<tr>
+								<td><label class="input-sm">Nomor SIM</label></td>
+								<td><input name="sim_no" maxlength="50" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->sim_no)?$candidate->sim_no:'') ?>"></td>
+							</tr>
+							<?php 
+								$date = explode("-", $candidate->sim_exp);
+								if($date[0]=='0000') $date[0] = '';
+							?>
+							<tr class="form-inline">
+								<td><label class="input-sm">Masa Berlaku</label></td>
+								<td>
+									<?php echo form_dropdown('sim_exp_dd',get_dd(),(isset($date[2])?$date[2]:''),'class="form-control input-sm"') ?>
+									<?php echo form_dropdown('sim_exp_mm',get_mm(),(isset($date[1])?$date[1]:''),'class="form-control input-sm"') ?>
+									<input name="sim_exp_yy" class="form-control input-sm" maxlength="4" size="10" value="<?php echo (isset($date[0])?$date[0]:'') ?>">
+								</td>
+							</tr>
+						</table>		
+					</div>			
+				</div>
+				<div class="box box-motor">
+					<div class="box-body">
+						<h3>APAKAH ANDA BISA MENGENDARAI MOTOR BESAR :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'motor1','name'=>'motor','value'=>'1','checked'=>($candidate->motor==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'motor2','name'=>'motor','value'=>'2','checked'=>($candidate->motor==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
 					</div>				
-				</div>				
-				<div class="box-footer box-sim-ya hide">
-					<table class="table table-striped table-bordered">
-						<tr>
-							<td><label class="input-sm">Nomor SIM</label></td>
-							<td><input name="sim_no" maxlength="50" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->sim_no)?$candidate->sim_no:'') ?>"></td>
-						</tr>
-						<?php 
-							$date = explode("-", $candidate->sim_exp);
-							if($date[0]=='0000') $date[0] = '';
-						?>
-						<tr class="form-inline">
-							<td><label class="input-sm">Masa Berlaku</label></td>
-							<td>
-								<?php echo form_dropdown('sim_exp_dd',get_dd(),(isset($date[2])?$date[2]:''),'class="form-control input-sm"') ?>
-								<?php echo form_dropdown('sim_exp_mm',get_mm(),(isset($date[1])?$date[1]:''),'class="form-control input-sm"') ?>
-								<input name="sim_exp_yy" class="form-control input-sm" maxlength="4" size="10" value="<?php echo (isset($date[0])?$date[0]:'') ?>">
-							</td>
-						</tr>
-					</table>		
+					<div class="box-footer box-motor-ya hide">
+						<label>MOTOR BESAR MEREK APA YANG PERNAH ANDA KENDARAI :</label>
+						<input name="motor_desc" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->motor_desc)?$candidate->motor_desc:'') ?>">
+					</div>			
+				</div>
+				<div class="box box-sick">
+					<div class="box-body">
+						<h3>DALAM SETAHUN TERAKHIR APAKAH ANDA PERNAH DIRAWAT DI RUMAH SAKIT :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'sick1','name'=>'sick','value'=>'1','checked'=>($candidate->sick==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'sick2','name'=>'sick','value'=>'2','checked'=>($candidate->sick==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
+					</div>				
+					<div class="box-footer box-sick-ya hide">
+						<label>PENYEBAB :</label>
+						<input name="sick_desc" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->sick_desc)?$candidate->sick_desc:'') ?>">
+					</div>			
+				</div>
+				<div class="box box-passport">
+					<div class="box-body">
+						<h3>APAKAH ANDA MEMILIKI PASSPORT :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'passport1','name'=>'passport','value'=>'1','checked'=>($candidate->passport==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'passport2','name'=>'passport','value'=>'2','checked'=>($candidate->passport==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
+					</div>				
+					<div class="box-footer box-passport-ya hide">
+						<table class="table table-striped table-bordered">
+							<tr>
+								<td><label class="input-sm">Nama Sesuai Passport</label></td>
+								<td><input name="passport_name" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->passport_name)?$candidate->passport_name:'') ?>"></td>
+							</tr>
+							<tr>
+								<td><label class="input-sm">Nomor Passport</label></td>
+								<td><input name="passport_no" maxlength="50" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->passport_no)?$candidate->passport_no:'') ?>"></td>
+							</tr>
+							<?php 
+								$date = explode("-", $candidate->passport_exp);
+								if($date[0]=='0000') $date[0] = '';
+							?>
+							<tr class="form-inline">
+								<td><label class="input-sm">Masa Berlaku</label></td>
+								<td>
+									<?php echo form_dropdown('passport_exp_dd',get_dd(),(isset($date[2])?$date[2]:''),'class="form-control input-sm"') ?>
+									<?php echo form_dropdown('passport_exp_mm',get_mm(),(isset($date[1])?$date[1]:''),'class="form-control input-sm"') ?>
+									<input name="passport_exp_yy" class="form-control input-sm" maxlength="4" size="10" value="<?php echo (isset($date[0])?$date[0]:'') ?>">
+								</td>
+							</tr>
+						</table>		
+					</div>			
 				</div>			
-			</div>
-			<div class="box box-motor">
-				<div class="box-body">
-					<h3>APAKAH ANDA BISA MENGENDARAI MOTOR BESAR :</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'motor1','name'=>'motor','value'=>'1','checked'=>($candidate->motor==1?true:false))) ?>
-							Ya
-						</label>
+				<div class="box box-barcelona">
+					<div class="box-body">
+						<h3>PERNAH KE BARCELONA :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'barcelona1','name'=>'barcelona','value'=>'1','checked'=>($candidate->barcelona==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'barcelona2','name'=>'barcelona','value'=>'2','checked'=>($candidate->barcelona==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'motor2','name'=>'motor','value'=>'2','checked'=>($candidate->motor==2?true:false))) ?>
-							Tidak
-						</label>
-					</div>				
-				</div>				
-				<div class="box-footer box-motor-ya hide">
-					<label>MOTOR BESAR MEREK APA YANG PERNAH ANDA KENDARAI :</label>
-					<input name="motor_desc" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->motor_desc)?$candidate->motor_desc:'') ?>">
 				</div>			
-			</div>
-			<div class="box box-sick">
-				<div class="box-body">
-					<h3>DALAM SETAHUN TERAKHIR APAKAH ANDA PERNAH DIRAWAT DI RUMAH SAKIT :</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'sick1','name'=>'sick','value'=>'1','checked'=>($candidate->sick==1?true:false))) ?>
-							Ya
-						</label>
+				<div class="box box-barcelona">
+					<div class="box-body">
+						<h3>ANDA PERNAH BERKUNJUNG KEMANA SAJA :</h3>
+						<input name="travel" maxlength="200" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->travel)?$candidate->travel:'') ?>">
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'sick2','name'=>'sick','value'=>'2','checked'=>($candidate->sick==2?true:false))) ?>
-							Tidak
-						</label>
+				</div>
+				<div class="box box-campaign">
+					<div class="box-body">
+						<h3>APAKAH ANDA SUDAH PERNAH MENGIKUTI CAMPAIGN MARLBORO SEBELUMNYA :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign1','name'=>'campaign','value'=>'1','checked'=>($candidate->campaign==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign2','name'=>'campaign','value'=>'2','checked'=>($candidate->campaign==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
 					</div>				
-				</div>				
-				<div class="box-footer box-sick-ya hide">
-					<label>PENYEBAB :</label>
-					<input name="sick_desc" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->sick_desc)?$candidate->sick_desc:'') ?>">
-				</div>			
-			</div>
-			<div class="box box-passport">
-				<div class="box-body">
-					<h3>APAKAH ANDA MEMILIKI PASSPORT :</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'passport1','name'=>'passport','value'=>'1','checked'=>($candidate->passport==1?true:false))) ?>
-							Ya
-						</label>
+					<div class="box-footer box-campaign-ya hide">
+						<label>TOLONG SEBUTKAN NAMA CAMPAIGN MARLBORO YANG SUDAH PERNAH ANDA IKUTI :</label>
+						<label>(Mohon sebutkan nama campaign, waktu campaign berlangsung dan sudah sampai level mana)</label>
+						<textarea name="campaign_desc" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->campaign_desc)?$candidate->campaign_desc:'') ?></textarea>
+					</div>			
+				</div>						
+				<div class="box box-campaign-same">
+					<div class="box-body">
+						<h3>APAKAH ANDA PERNAH MENGIKUTI KEGIATAN SERUPA (UNDIAN BERHADIAH, KAMPANYE PRODUK BERHADIAH): </h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign_same1','name'=>'campaign_same','value'=>'1','checked'=>($candidate->campaign_same==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign_same2','name'=>'campaign_same','value'=>'2','checked'=>($candidate->campaign_same==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'passport2','name'=>'passport','value'=>'2','checked'=>($candidate->passport==2?true:false))) ?>
-							Tidak
-						</label>
+					<div class="box-footer box-campaign-same-ya hide">
+						<label>APAKAH ANDA MEMENANGKAN HADIAH DALAM PARTISIPASI ANDA ? </label>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign_same_price1','name'=>'campaign_same_price','value'=>'1','checked'=>($candidate->campaign_same_price==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'campaign_same_price2','name'=>'campaign_same_price','value'=>'2','checked'=>($candidate->campaign_same_price==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
+						<label>TOLONG SEBUTKAN NAMA PROGRAM TERSEBUT</label>
+						<textarea name="campaign_same_name" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->campaign_same_name)?$candidate->campaign_same_name:'') ?></textarea>
+					</div>			
+				</div>						
+				<div class="box">
+					<div class="box-body">
+						<h4>Baik, dengan demikian kita bisa melanjutkan ke tahap phone interview.</h4>
+						<h4>KAMI BERITAHUKAN TERLEBIH DAHULU BAHWA SELURUH PEMBICARAAN YANG TERJADI DI TELEPON INI AKAN DIREKAM UNTUK DIJADIKAN BAHAN PERTIMBANGAN DALAM PROSES PEMILIHAN PEMENANG. DAFTAR PERTANYAAN SELEKSI PHONE INTERVIEW</h4>
+						<h4>Pertanyaan-pertanyaan yang akan saya sampaikan bertujuan untuk menggali kecocokan profil Andauntuk menjadi finalis.</h4>
+						<h4>Harap berikan  jawaban yang jelas dan padat.</h4>
+					</div>			
+				</div>						
+				<div class="box">
+					<div class="box-header"><h3>INTEREST PROMPT</h3></div>
+					<div class="box-body">					
+						<h3>1. Diantara 3 interest ini, mana yang paling lo banget ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i11','name'=>'i1','value'=>'1','checked'=>($candidate->i1==1?true:false))) ?>
+								Motorsport (Sepeda Motor, Racing, Modifikasi Motor dan Semacamnya)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i12','name'=>'i1','value'=>'2','checked'=>($candidate->i1==2?true:false))) ?>
+								Nightlife (Clubbing, Bar, Party dan Semacamnya)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i13','name'=>'i1','value'=>'3','checked'=>($candidate->i1==3?true:false))) ?>
+								Traveling (Flashpacker, Backpacker, Glam Travel dan Semacamnya)
+							</label>
+						</div>				
+						<h3>2. Menurut lo Barcelona identik sama apa ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i21','name'=>'i2','value'=>'1','checked'=>($candidate->i2==1?true:false))) ?>
+								Motorsport/ Moto GP
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i22','name'=>'i2','value'=>'2','checked'=>($candidate->i2==2?true:false))) ?>
+								Nightlife
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'i23','name'=>'i2','value'=>'3','checked'=>($candidate->i2==3?true:false))) ?>
+								Traveling / Bola / Jawaban lain selain Nightlife dan Motorsport
+							</label>
+						</div>				
 					</div>				
-				</div>				
-				<div class="box-footer box-passport-ya hide">
-					<table class="table table-striped table-bordered">
-						<tr>
-							<td><label class="input-sm">Nama Sesuai Passport</label></td>
-							<td><input name="passport_name" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->passport_name)?$candidate->passport_name:'') ?>"></td>
-						</tr>
-						<tr>
-							<td><label class="input-sm">Nomor Passport</label></td>
-							<td><input name="passport_no" maxlength="50" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->passport_no)?$candidate->passport_no:'') ?>"></td>
-						</tr>
-						<?php 
-							$date = explode("-", $candidate->passport_exp);
-							if($date[0]=='0000') $date[0] = '';
-						?>
-						<tr class="form-inline">
-							<td><label class="input-sm">Masa Berlaku</label></td>
-							<td>
-								<?php echo form_dropdown('passport_exp_dd',get_dd(),(isset($date[2])?$date[2]:''),'class="form-control input-sm"') ?>
-								<?php echo form_dropdown('passport_exp_mm',get_mm(),(isset($date[1])?$date[1]:''),'class="form-control input-sm"') ?>
-								<input name="passport_exp_yy" class="form-control input-sm" maxlength="4" size="10" value="<?php echo (isset($date[0])?$date[0]:'') ?>">
-							</td>
-						</tr>
-					</table>		
-				</div>			
-			</div>			
-			<div class="box box-barcelona">
-				<div class="box-body">
-					<h3>PERNAH KE BARCELONA :</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'barcelona1','name'=>'barcelona','value'=>'1','checked'=>($candidate->barcelona==1?true:false))) ?>
-							Ya
-						</label>
+				</div>						
+				<div class="box">
+					<div class="box-header"><h3>MOTORSPORT</h3></div>
+					<div class="box-body">					
+						<h3>1. Punya motor ? atau punya ketertarikan ke Dunia Motorsport?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m11','name'=>'m1','value'=>'1','checked'=>($candidate->m1==1?true:false))) ?>
+								Jawaban negative (e.g Tidak punya motor, Tidak tertarik)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m12','name'=>'m1','value'=>'2','checked'=>($candidate->m1==2?true:false))) ?>
+								Jawaban positive (e.g Punya motor, Tertarik, Jawaban sekedarnya)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m13','name'=>'m1','value'=>'3','checked'=>($candidate->m1==3?true:false))) ?>
+								Jawaban positive (e.g Punya motor, Jawaban lebih spesifik dan menunjukkan mendalami Dunia Motor)
+							</label>
+						</div>				
+						<h3>2. Apa yang menurut lo menarik dengan dunia Motorsport?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m21','name'=>'m2','value'=>'1','checked'=>($candidate->m2==1?true:false))) ?>
+								Jawaban negative (e.g Tidak tertarik, tidak menunjukkan antusiasme)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m22','name'=>'m2','value'=>'2','checked'=>($candidate->m2==2?true:false))) ?>
+								Jawaban positive (Jawaban cenderung generic dan tidak spesifik, e.g Karena keren)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m23','name'=>'m2','value'=>'3','checked'=>($candidate->m2==3?true:false))) ?>
+								Jawaban positive (Jawaban spesifik, e.g Karena suka dengan adrenaline rush)
+							</label>
+						</div>				
+						<h3>3. Lo lebih suka motor classic, trail, atau motor sport ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m31','name'=>'m3','value'=>'1','checked'=>($candidate->m3==1?true:false))) ?>
+								Motor classic 
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m32','name'=>'m3','value'=>'2','checked'=>($candidate->m3==2?true:false))) ?>
+								Motor trail
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m33','name'=>'m3','value'=>'3','checked'=>($candidate->m3==3?true:false))) ?>
+								Motor sport
+							</label>
+						</div>				
+						<h3>4. Sering nonton MotoGP ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m41','name'=>'m4','value'=>'1','checked'=>($candidate->m4==1?true:false))) ?>
+								Jawaban negative (e.g Tidak pernah, Tidak tahu)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m42','name'=>'m4','value'=>'2','checked'=>($candidate->m4==2?true:false))) ?>
+								Jawaban general (e.g Pernah 1-2 kali, Kalau sempat)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m43','name'=>'m4','value'=>'3','checked'=>($candidate->m4==3?true:false))) ?>
+								Selalu menonton, Tidak pernah ketinggalan
+							</label>
+						</div>				
+						<h3>5. Bisa sebutin nama nama pembalap moto GP yang lo tahu?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m51','name'=>'m5','value'=>'1','checked'=>($candidate->m5==1?true:false))) ?>
+								Jawaban negative (e.g Tidak bias menyebutkan, Bisa menyebutkan 1)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m52','name'=>'m5','value'=>'2','checked'=>($candidate->m5==2?true:false))) ?>
+								Bisa menyebutkan 2 – 5 Nama
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'m53','name'=>'m5','value'=>'3','checked'=>($candidate->m5==3?true:false))) ?>
+								Bisa menyebutkan lebih dari 5 Nama
+							</label>
+						</div>				
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'barcelona2','name'=>'barcelona','value'=>'2','checked'=>($candidate->barcelona==2?true:false))) ?>
-							Tidak
-						</label>
+				</div>						
+				<div class="box">
+					<div class="box-header"><h3>NIGHTLIFE</h3></div>
+					<div class="box-body">					
+						<h3>1. Lo suka ke Clubnongkrong di Bar ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n11','name'=>'n1','value'=>'1','checked'=>($candidate->n1==1?true:false))) ?>
+								Jawaban negative (e.g Tidak suka clubbing / nongkrong, nggak pernah)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n12','name'=>'n1','value'=>'2','checked'=>($candidate->n1==2?true:false))) ?>
+								Jawaban positif (e.g kadang-kadang, sekali, pernah tapi jarang)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n13','name'=>'n1','value'=>'3','checked'=>($candidate->n1==3?true:false))) ?>
+								Jawaban positif (e.g Iya, sering, suka)
+							</label>
+						</div>				
+						<h3>2. Seringnya clubbing / nongkrong dimana ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n21','name'=>'n2','value'=>'1','checked'=>($candidate->n2==1?true:false))) ?>
+								Menyebutkan 1-2 tempat
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n22','name'=>'n2','value'=>'2','checked'=>($candidate->n2==2?true:false))) ?>
+								Menyebutkan lebih dari 2-5 tempat
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n23','name'=>'n2','value'=>'3','checked'=>($candidate->n2==3?true:false))) ?>
+								Menyebutkan lebih dari 5 tempat
+							</label>
+						</div>				
+						<h3>3. Genre dance musik apa yang lo suka ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n31','name'=>'n3','value'=>'1','checked'=>($candidate->n3==1?true:false))) ?>
+								Jawaban tidak sesuai (e.g Kalau clubbing tidak suka tempat music Dance)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n32','name'=>'n3','value'=>'2','checked'=>($candidate->n3==2?true:false))) ?>
+								Jawaban general (e.g EDM, Electronic)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n33','name'=>'n3','value'=>'3','checked'=>($candidate->n3==3?true:false))) ?>
+								Jawaban spesifik (e.g Dubstep, Downtempo, Trance, Deep House, Disco, RnB)
+							</label>
+						</div>				
+						<h3>4. DJ/EDM Artist favorit lo siapa ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n41','name'=>'n4','value'=>'1','checked'=>($candidate->n4==1?true:false))) ?>
+								Tidak bisa menyebut nama / Tidak mengikuti musik EDM
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n42','name'=>'n4','value'=>'2','checked'=>($candidate->n4==2?true:false))) ?>
+								Nama yang disebutkan populer (e.g Zedd, Avicii, Calvin Harris, Skrillex, Armin van Buuren, David Guetta)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n43','name'=>'n4','value'=>'3','checked'=>($candidate->n4==3?true:false))) ?>
+								Nama yang disebutkan spesifik (e.g Madeon, Aly & Fila, Fedde Le Grand) 
+							</label>
+						</div>				
+						<h3>5. EDM Event / party apa yang terakhirlo datengin ? Kapan ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n51','name'=>'n5','value'=>'1','checked'=>($candidate->n5==1?true:false))) ?>
+								Event/ party yang didatangi lebih dari 1 tahun ke belakang
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n52','name'=>'n5','value'=>'2','checked'=>($candidate->n5==2?true:false))) ?>
+								Event / party yang didatangi dalam jangka waktu 5-10 bulan ke belakang
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'n53','name'=>'n5','value'=>'3','checked'=>($candidate->n5==3?true:false))) ?>
+								Event/ party yang didatangi kurang lebih dalam 4 bulan ke belakang
+							</label>
+						</div>				
 					</div>				
-				</div>				
-			</div>			
-			<div class="box box-barcelona">
-				<div class="box-body">
-					<h3>ANDA PERNAH BERKUNJUNG KEMANA SAJA :</h3>
-					<input name="travel" maxlength="200" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->travel)?$candidate->travel:'') ?>">
-				</div>				
-			</div>
-			<div class="box box-campaign">
-				<div class="box-body">
-					<h3>APAKAH ANDA SUDAH PERNAH MENGIKUTI CAMPAIGN MARLBORO SEBELUMNYA :</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign1','name'=>'campaign','value'=>'1','checked'=>($candidate->campaign==1?true:false))) ?>
-							Ya
-						</label>
+				</div>						
+				<div class="box">
+					<div class="box-header"><h3>TRAVELING</h3></div>
+					<div class="box-body">					
+						<h3>1. Dalam setahun lo bisa berapa kali traveling ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t11','name'=>'t1','value'=>'1','checked'=>($candidate->t1==1?true:false))) ?>
+								1-2 kali paling banyak
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t12','name'=>'t1','value'=>'2','checked'=>($candidate->t1==2?true:false))) ?>
+								3-4 kali setahun
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t13','name'=>'t1','value'=>'3','checked'=>($candidate->t1==3?true:false))) ?>
+								Lebih dari 5 kali setahun
+							</label>
+						</div>				
+						<h3>2. Biasanya lo kalau traveling sama siapa ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t21','name'=>'t2','value'=>'1','checked'=>($candidate->t2==1?true:false))) ?>
+								Bersama keluarga
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t22','name'=>'t2','value'=>'2','checked'=>($candidate->t2==2?true:false))) ?>
+								Pasangan
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t23','name'=>'t2','value'=>'3','checked'=>($candidate->t2==3?true:false))) ?>
+								Sendiri / teman
+							</label>
+						</div>				
+						<h3>3. Kenapa lo traveling ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t31','name'=>'t3','value'=>'1','checked'=>($candidate->t3==1?true:false))) ?>
+								Jawaban yang diberikan kurang spesifik atau standar (e.g Ikut tur / orang tua / teman / asyik)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t32','name'=>'t3','value'=>'2','checked'=>($candidate->t3==2?true:false))) ?>
+								Jawaban yang diberikan spesifik (e.g Melihat Menara Eiffel, menonton konser, melihat salju)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t33','name'=>'t3','value'=>'3','checked'=>($candidate->t3==3?true:false))) ?>
+								Jawaban yang diberikan sangat spesifik (e.g Merasakan makanan local, pengalaman mirip film)
+							</label>
+						</div>				
+						<h3>4. Saat lo traveling, agenda lo ngapain aja ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t41','name'=>'t4','value'=>'1','checked'=>($candidate->t4==1?true:false))) ?>
+								Jawaban yang diberikan elaborasinya kurang (e.g Kegiatan turis pada umumnya)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t42','name'=>'t4','value'=>'2','checked'=>($candidate->t4==2?true:false))) ?>
+								Jawaban yang diberikan elaborasinya cukup (e.g Ingin merasakan susasana yang beda, Ingin tahu soal negara tersebut)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t43','name'=>'t4','value'=>'3','checked'=>($candidate->t4==3?true:false))) ?>
+								Jawaban yang diberikan elaborasinya dalam (e.g Merasakan menjadi penduduk setempat)
+							</label>
+						</div>				
+						<h3>5. Destinasi traveling paling jauh yang pernah lo datangi dimana ?</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t51','name'=>'t5','value'=>'1','checked'=>($candidate->t5==1?true:false))) ?>
+								Jawaban tempat turis (e.g Bali, Lombok, Singapura, Malaysia, Thailand)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t52','name'=>'t5','value'=>'2','checked'=>($candidate->t5==2?true:false))) ?>
+								Jawaban tempat turis yang cukup jauh (e.g Jepang, China, Eropa, Amerika Serikat, Australia, New Zealand)
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'t53','name'=>'t5','value'=>'3','checked'=>($candidate->t5==3?true:false))) ?>
+								Jawaban tempat turis yang spesifik dan jauh (e.g Spanyol, Norwegia, Islandia, Raja Ampat, Kanada)
+							</label>
+						</div>				
 					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign2','name'=>'campaign','value'=>'2','checked'=>($candidate->campaign==2?true:false))) ?>
-							Tidak
-						</label>
-					</div>				
-				</div>				
-				<div class="box-footer box-campaign-ya hide">
-					<label>TOLONG SEBUTKAN NAMA CAMPAIGN MARLBORO YANG SUDAH PERNAH ANDA IKUTI :</label>
-					<label>(Mohon sebutkan nama campaign, waktu campaign berlangsung dan sudah sampai level mana)</label>
-					<textarea name="campaign_desc" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->campaign_desc)?$candidate->campaign_desc:'') ?></textarea>
-				</div>			
-			</div>						
-			<div class="box box-campaign-same">
-				<div class="box-body">
-					<h3>APAKAH ANDA PERNAH MENGIKUTI KEGIATAN SERUPA (UNDIAN BERHADIAH, KAMPANYE PRODUK BERHADIAH): </h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign_same1','name'=>'campaign_same','value'=>'1','checked'=>($candidate->campaign_same==1?true:false))) ?>
-							Ya
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign_same2','name'=>'campaign_same','value'=>'2','checked'=>($candidate->campaign_same==2?true:false))) ?>
-							Tidak
-						</label>
-					</div>				
-				</div>				
-				<div class="box-footer box-campaign-same-ya hide">
-					<label>APAKAH ANDA MEMENANGKAN HADIAH DALAM PARTISIPASI ANDA ? </label>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign_same_price1','name'=>'campaign_same_price','value'=>'1','checked'=>($candidate->campaign_same_price==1?true:false))) ?>
-							Ya
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'campaign_same_price2','name'=>'campaign_same_price','value'=>'2','checked'=>($candidate->campaign_same_price==2?true:false))) ?>
-							Tidak
-						</label>
-					</div>				
-					<label>TOLONG SEBUTKAN NAMA PROGRAM TERSEBUT</label>
-					<textarea name="campaign_same_name" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->campaign_same_name)?$candidate->campaign_same_name:'') ?></textarea>
-				</div>			
-			</div>						
-			<div class="box">
-				<div class="box-body">
-					<h4>Baik, dengan demikian kita bisa melanjutkan ke tahap phone interview.</h4>
-					<h4>KAMI BERITAHUKAN TERLEBIH DAHULU BAHWA SELURUH PEMBICARAAN YANG TERJADI DI TELEPON INI AKAN DIREKAM UNTUK DIJADIKAN BAHAN PERTIMBANGAN DALAM PROSES PEMILIHAN PEMENANG. DAFTAR PERTANYAAN SELEKSI PHONE INTERVIEW</h4>
-					<h4>Pertanyaan-pertanyaan yang akan saya sampaikan bertujuan untuk menggali kecocokan profil Andauntuk menjadi finalis.</h4>
-					<h4>Harap berikan  jawaban yang jelas dan padat.</h4>
-				</div>			
-			</div>						
-			<div class="box">
-				<div class="box-header"><h3>INTEREST PROMPT</h3></div>
-				<div class="box-body">					
-					<h3>1. Diantara 3 interest ini, mana yang paling lo banget ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i11','name'=>'i1','value'=>'1','checked'=>($candidate->i1==1?true:false))) ?>
-							Motorsport (Sepeda Motor, Racing, Modifikasi Motor dan Semacamnya)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i12','name'=>'i1','value'=>'2','checked'=>($candidate->i1==2?true:false))) ?>
-							Nightlife (Clubbing, Bar, Party dan Semacamnya)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i13','name'=>'i1','value'=>'3','checked'=>($candidate->i1==3?true:false))) ?>
-							Traveling (Flashpacker, Backpacker, Glam Travel dan Semacamnya)
-						</label>
-					</div>				
-					<h3>2. Menurut lo Barcelona identik sama apa ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i21','name'=>'i2','value'=>'1','checked'=>($candidate->i2==1?true:false))) ?>
-							Motorsport/ Moto GP
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i22','name'=>'i2','value'=>'2','checked'=>($candidate->i2==2?true:false))) ?>
-							Nightlife
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'i23','name'=>'i2','value'=>'3','checked'=>($candidate->i2==3?true:false))) ?>
-							Traveling / Bola / Jawaban lain selain Nightlife dan Motorsport
-						</label>
-					</div>				
-				</div>				
-			</div>						
-			<div class="box">
-				<div class="box-header"><h3>MOTORSPORT</h3></div>
-				<div class="box-body">					
-					<h3>1. Punya motor ? atau punya ketertarikan ke Dunia Motorsport?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m11','name'=>'m1','value'=>'1','checked'=>($candidate->m1==1?true:false))) ?>
-							Jawaban negative (e.g Tidak punya motor, Tidak tertarik)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m12','name'=>'m1','value'=>'2','checked'=>($candidate->m1==2?true:false))) ?>
-							Jawaban positive (e.g Punya motor, Tertarik, Jawaban sekedarnya)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m13','name'=>'m1','value'=>'3','checked'=>($candidate->m1==3?true:false))) ?>
-							Jawaban positive (e.g Punya motor, Jawaban lebih spesifik dan menunjukkan mendalami Dunia Motor)
-						</label>
-					</div>				
-					<h3>2. Apa yang menurut lo menarik dengan dunia Motorsport?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m21','name'=>'m2','value'=>'1','checked'=>($candidate->m2==1?true:false))) ?>
-							Jawaban negative (e.g Tidak tertarik, tidak menunjukkan antusiasme)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m22','name'=>'m2','value'=>'2','checked'=>($candidate->m2==2?true:false))) ?>
-							Jawaban positive (Jawaban cenderung generic dan tidak spesifik, e.g Karena keren)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m23','name'=>'m2','value'=>'3','checked'=>($candidate->m2==3?true:false))) ?>
-							Jawaban positive (Jawaban spesifik, e.g Karena suka dengan adrenaline rush)
-						</label>
-					</div>				
-					<h3>3. Lo lebih suka motor classic, trail, atau motor sport ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m31','name'=>'m3','value'=>'1','checked'=>($candidate->m3==1?true:false))) ?>
-							Motor classic 
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m32','name'=>'m3','value'=>'2','checked'=>($candidate->m3==2?true:false))) ?>
-							Motor trail
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m33','name'=>'m3','value'=>'3','checked'=>($candidate->m3==3?true:false))) ?>
-							Motor sport
-						</label>
-					</div>				
-					<h3>4. Sering nonton MotoGP ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m41','name'=>'m4','value'=>'1','checked'=>($candidate->m4==1?true:false))) ?>
-							Jawaban negative (e.g Tidak pernah, Tidak tahu)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m42','name'=>'m4','value'=>'2','checked'=>($candidate->m4==2?true:false))) ?>
-							Jawaban general (e.g Pernah 1-2 kali, Kalau sempat)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m43','name'=>'m4','value'=>'3','checked'=>($candidate->m4==3?true:false))) ?>
-							Selalu menonton, Tidak pernah ketinggalan
-						</label>
-					</div>				
-					<h3>5. Bisa sebutin nama nama pembalap moto GP yang lo tahu?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m51','name'=>'m5','value'=>'1','checked'=>($candidate->m5==1?true:false))) ?>
-							Jawaban negative (e.g Tidak bias menyebutkan, Bisa menyebutkan 1)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m52','name'=>'m5','value'=>'2','checked'=>($candidate->m5==2?true:false))) ?>
-							Bisa menyebutkan 2 – 5 Nama
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'m53','name'=>'m5','value'=>'3','checked'=>($candidate->m5==3?true:false))) ?>
-							Bisa menyebutkan lebih dari 5 Nama
-						</label>
-					</div>				
-				</div>				
-			</div>						
-			<div class="box">
-				<div class="box-header"><h3>NIGHTLIFE</h3></div>
-				<div class="box-body">					
-					<h3>1. Lo suka ke Clubnongkrong di Bar ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n11','name'=>'n1','value'=>'1','checked'=>($candidate->n1==1?true:false))) ?>
-							Jawaban negative (e.g Tidak suka clubbing / nongkrong, nggak pernah)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n12','name'=>'n1','value'=>'2','checked'=>($candidate->n1==2?true:false))) ?>
-							Jawaban positif (e.g kadang-kadang, sekali, pernah tapi jarang)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n13','name'=>'n1','value'=>'3','checked'=>($candidate->n1==3?true:false))) ?>
-							Jawaban positif (e.g Iya, sering, suka)
-						</label>
-					</div>				
-					<h3>2. Seringnya clubbing / nongkrong dimana ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n21','name'=>'n2','value'=>'1','checked'=>($candidate->n2==1?true:false))) ?>
-							Menyebutkan 1-2 tempat
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n22','name'=>'n2','value'=>'2','checked'=>($candidate->n2==2?true:false))) ?>
-							Menyebutkan lebih dari 2-5 tempat
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n23','name'=>'n2','value'=>'3','checked'=>($candidate->n2==3?true:false))) ?>
-							Menyebutkan lebih dari 5 tempat
-						</label>
-					</div>				
-					<h3>3. Genre dance musik apa yang lo suka ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n31','name'=>'n3','value'=>'1','checked'=>($candidate->n3==1?true:false))) ?>
-							Jawaban tidak sesuai (e.g Kalau clubbing tidak suka tempat music Dance)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n32','name'=>'n3','value'=>'2','checked'=>($candidate->n3==2?true:false))) ?>
-							Jawaban general (e.g EDM, Electronic)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n33','name'=>'n3','value'=>'3','checked'=>($candidate->n3==3?true:false))) ?>
-							Jawaban spesifik (e.g Dubstep, Downtempo, Trance, Deep House, Disco, RnB)
-						</label>
-					</div>				
-					<h3>4. DJ/EDM Artist favorit lo siapa ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n41','name'=>'n4','value'=>'1','checked'=>($candidate->n4==1?true:false))) ?>
-							Tidak bisa menyebut nama / Tidak mengikuti musik EDM
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n42','name'=>'n4','value'=>'2','checked'=>($candidate->n4==2?true:false))) ?>
-							Nama yang disebutkan populer (e.g Zedd, Avicii, Calvin Harris, Skrillex, Armin van Buuren, David Guetta)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n43','name'=>'n4','value'=>'3','checked'=>($candidate->n4==3?true:false))) ?>
-							Nama yang disebutkan spesifik (e.g Madeon, Aly & Fila, Fedde Le Grand) 
-						</label>
-					</div>				
-					<h3>5. EDM Event / party apa yang terakhirlo datengin ? Kapan ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n51','name'=>'n5','value'=>'1','checked'=>($candidate->n5==1?true:false))) ?>
-							Event/ party yang didatangi lebih dari 1 tahun ke belakang
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n52','name'=>'n5','value'=>'2','checked'=>($candidate->n5==2?true:false))) ?>
-							Event / party yang didatangi dalam jangka waktu 5-10 bulan ke belakang
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'n53','name'=>'n5','value'=>'3','checked'=>($candidate->n5==3?true:false))) ?>
-							Event/ party yang didatangi kurang lebih dalam 4 bulan ke belakang
-						</label>
-					</div>				
-				</div>				
-			</div>						
-			<div class="box">
-				<div class="box-header"><h3>TRAVELING</h3></div>
-				<div class="box-body">					
-					<h3>1. Dalam setahun lo bisa berapa kali traveling ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t11','name'=>'t1','value'=>'1','checked'=>($candidate->t1==1?true:false))) ?>
-							1-2 kali paling banyak
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t12','name'=>'t1','value'=>'2','checked'=>($candidate->t1==2?true:false))) ?>
-							3-4 kali setahun
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t13','name'=>'t1','value'=>'3','checked'=>($candidate->t1==3?true:false))) ?>
-							Lebih dari 5 kali setahun
-						</label>
-					</div>				
-					<h3>2. Biasanya lo kalau traveling sama siapa ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t21','name'=>'t2','value'=>'1','checked'=>($candidate->t2==1?true:false))) ?>
-							Bersama keluarga
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t22','name'=>'t2','value'=>'2','checked'=>($candidate->t2==2?true:false))) ?>
-							Pasangan
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t23','name'=>'t2','value'=>'3','checked'=>($candidate->t2==3?true:false))) ?>
-							Sendiri / teman
-						</label>
-					</div>				
-					<h3>3. Kenapa lo traveling ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t31','name'=>'t3','value'=>'1','checked'=>($candidate->t3==1?true:false))) ?>
-							Jawaban yang diberikan kurang spesifik atau standar (e.g Ikut tur / orang tua / teman / asyik)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t32','name'=>'t3','value'=>'2','checked'=>($candidate->t3==2?true:false))) ?>
-							Jawaban yang diberikan spesifik (e.g Melihat Menara Eiffel, menonton konser, melihat salju)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t33','name'=>'t3','value'=>'3','checked'=>($candidate->t3==3?true:false))) ?>
-							Jawaban yang diberikan sangat spesifik (e.g Merasakan makanan local, pengalaman mirip film)
-						</label>
-					</div>				
-					<h3>4. Saat lo traveling, agenda lo ngapain aja ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t41','name'=>'t4','value'=>'1','checked'=>($candidate->t4==1?true:false))) ?>
-							Jawaban yang diberikan elaborasinya kurang (e.g Kegiatan turis pada umumnya)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t42','name'=>'t4','value'=>'2','checked'=>($candidate->t4==2?true:false))) ?>
-							Jawaban yang diberikan elaborasinya cukup (e.g Ingin merasakan susasana yang beda, Ingin tahu soal negara tersebut)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t43','name'=>'t4','value'=>'3','checked'=>($candidate->t4==3?true:false))) ?>
-							Jawaban yang diberikan elaborasinya dalam (e.g Merasakan menjadi penduduk setempat)
-						</label>
-					</div>				
-					<h3>5. Destinasi traveling paling jauh yang pernah lo datangi dimana ?</h3>
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t51','name'=>'t5','value'=>'1','checked'=>($candidate->t5==1?true:false))) ?>
-							Jawaban tempat turis (e.g Bali, Lombok, Singapura, Malaysia, Thailand)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t52','name'=>'t5','value'=>'2','checked'=>($candidate->t5==2?true:false))) ?>
-							Jawaban tempat turis yang cukup jauh (e.g Jepang, China, Eropa, Amerika Serikat, Australia, New Zealand)
-						</label>
-					</div>				
-					<div class="radio">
-						<label>
-							<?php echo form_radio(array('id'=>'t53','name'=>'t5','value'=>'3','checked'=>($candidate->t5==3?true:false))) ?>
-							Jawaban tempat turis yang spesifik dan jauh (e.g Spanyol, Norwegia, Islandia, Raja Ampat, Kanada)
-						</label>
-					</div>				
-				</div>				
-			</div>						
-			<div class="box">
-				<div class="box-body">
-					<label>REMARKS (2-3 SENTENCES IN ENGLISH)</label>
-					<textarea name="remark" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->remark)?$candidate->remark:'') ?></textarea>
-				</div>			
-			</div>									
-			<div class="box">
-				<div class="box-body">
-					<h3>Demikian pertanyaan dari kami. </h3>
-					<h3>Atas nama Marlboro, saya mengucapkan terima kasih atas waktu dan informasi yang telahAnda berikandan partisipasi Anda dalam mengikuti program MARLBORO RIDE to BARCELONA. Semoga kita bisa bertemu nanti di Denpasar dan semoga berhasil!</h3>
+				</div>						
+				<div class="box">
+					<div class="box-body">
+						<h3>Demikian pertanyaan dari kami. </h3>
+						<h3>Atas nama Marlboro, saya mengucapkan terima kasih atas waktu dan informasi yang telahAnda berikandan partisipasi Anda dalam mengikuti program MARLBORO RIDE to BARCELONA. Semoga kita bisa bertemu nanti di Denpasar dan semoga berhasil!</h3>
 
-					<h3><?php echo $gretting ?></h3>
-				</div>			
-			</div>									
-			<div class="box">
-				<div class="box-body">
-					<label>OVERALL INSIGHTS (SENTENCES IN ENGLISH)</label>
-					<textarea name="overall" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->overall)?$candidate->overall:'') ?></textarea>
-				</div>			
-			</div>									
+						<h3><?php echo $gretting ?></h3>
+					</div>			
+				</div>									
+				<div class="box">
+					<div class="box-body">
+						<label>REMARKS (2-3 SENTENCES IN ENGLISH)</label>
+						<textarea name="remark" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->remark)?$candidate->remark:'') ?></textarea>
+					</div>			
+				</div>									
+				<div class="box">
+					<div class="box-body">
+						<label>OVERALL INSIGHTS (SENTENCES IN ENGLISH)</label>
+						<textarea name="overall" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->overall)?$candidate->overall:'') ?></textarea>
+					</div>			
+				</div>		
+			</div>								
 		</div>
 		<?php echo form_close() ?>
 		<div class="col-md-4 col-sm-4">
@@ -848,20 +853,20 @@
 $(document).ready(function(){
 	$('#note').keyup(function(e){
 	    if(e.keyCode == 13 && $(this).val() != ''){	        
-					$.ajax({
-						url:'<?php echo base_url() ?>index.php/interview/callhis/create',
-						type:'post',
-						data:{
-							status:$(this).val(),
-							candidate:'<?php echo $candidate->id ?>'
-						},
-						success:function(str){
-							$('.box-callhis').html(str);							
-						}
-					});
-				$(this).val('');
+			$.ajax({
+				url:'<?php echo base_url() ?>index.php/interview/callhis/create',
+				type:'post',
+				data:{
+					status:$(this).val(),
+					candidate:'<?php echo $candidate->id ?>'
+				},
+				success:function(str){
+					$('.box-callhis').html(str);							
+				}
+			});
+			$(this).val('');
 	    }else{
-				console.log('Note is Emptry');
+			console.log('Note is Emptry');
 	    }
 	});
 

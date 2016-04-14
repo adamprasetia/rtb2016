@@ -97,6 +97,7 @@ class Interview extends MY_Controller {
 				'nickname'=>$this->input->post('nickname'),
 				'dob'=>$this->input->post('dob_yy').'-'.$this->input->post('dob_mm').'-'.$this->input->post('dob_dd'),
 				'tlp'=>$this->input->post('tlp'),
+				'email'=>$this->input->post('email'),
 				'fb'=>$this->input->post('fb'),
 				'tw'=>$this->input->post('tw'),
 				'ins'=>$this->input->post('ins'),
