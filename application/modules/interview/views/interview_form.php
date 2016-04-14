@@ -41,6 +41,7 @@
 					<b>Phone Script</b>
 				</div>	
 				<div class="box-body">
+					<h3>Nomor Telephone : <b><?php echo $candidate->tlp ?></b></h3>
 					<h3><?php echo $gretting ?>. Bisa berbicara dengan <b><?php echo $candidate->fullname ?></b> ?</h3>
 				</div>	
 				<div class="box-footer">
