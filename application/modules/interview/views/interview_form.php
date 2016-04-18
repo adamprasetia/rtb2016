@@ -176,6 +176,10 @@
 								</td>
 							</tr>
 							<tr>
+								<td><label class="input-sm">Kota</label></td>
+								<td><input name="city" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->city)?$candidate->city:'') ?>"></td>
+							</tr>
+							<tr>
 								<td><label class="input-sm">Phone/HP</label></td>
 								<td><input name="tlp" maxlength="100" autocomplete="off" class="form-control input-sm" value="<?php echo (isset($candidate->tlp)?$candidate->tlp:'') ?>"></td>
 							</tr>
@@ -409,6 +413,24 @@
 						<label>TOLONG SEBUTKAN NAMA PROGRAM TERSEBUT</label>
 						<textarea name="campaign_same_name" rows="5" autocomplete="off" class="form-control input-sm"><?php echo (isset($candidate->campaign_same_name)?$candidate->campaign_same_name:'') ?></textarea>
 					</div>			
+				</div>						
+				<div class="box box-hamil box-warning">
+					<div class="box-body">
+						<p><b>Note : JIKA KANDIDAT ADALAH PEREMPUAN</b></p>
+						<h3>APAKAH SAAT INI ANDA SEDANG MENGANDUNG :</h3>
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'hamil1','name'=>'hamil','value'=>'1','checked'=>($candidate->hamil==1?true:false))) ?>
+								Ya
+							</label>
+						</div>				
+						<div class="radio">
+							<label>
+								<?php echo form_radio(array('id'=>'hamil2','name'=>'hamil','value'=>'2','checked'=>($candidate->hamil==2?true:false))) ?>
+								Tidak
+							</label>
+						</div>				
+					</div>				
 				</div>						
 				<div class="box">
 					<div class="box-body">
@@ -764,8 +786,7 @@
 				<div class="box">
 					<div class="box-body">
 						<h3>Demikian pertanyaan dari kami. </h3>
-						<h3>Atas nama Marlboro, saya mengucapkan terima kasih atas waktu dan informasi yang telahAnda berikandan partisipasi Anda dalam mengikuti program MARLBORO RIDE to BARCELONA. Semoga kita bisa bertemu nanti di Denpasar dan semoga berhasil!</h3>
-
+						<h3>Atas nama Marlboro, saya mengucapkan terima kasih atas waktu dan informasi yang telah Anda berikan dan partisipasi Anda dalam mengikuti program MARLBORO RIDE to BARCELONA.</h3>
 						<h3><?php echo $gretting ?></h3>
 					</div>			
 				</div>									
