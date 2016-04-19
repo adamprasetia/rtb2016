@@ -436,14 +436,14 @@
 					<div class="box-body">
 						<h4>Baik, dengan demikian kita bisa melanjutkan ke tahap phone interview.</h4>
 						<h4>KAMI BERITAHUKAN TERLEBIH DAHULU BAHWA SELURUH PEMBICARAAN YANG TERJADI DI TELEPON INI AKAN DIREKAM UNTUK DIJADIKAN BAHAN PERTIMBANGAN DALAM PROSES PEMILIHAN PEMENANG. DAFTAR PERTANYAAN SELEKSI PHONE INTERVIEW</h4>
-						<h4>Pertanyaan-pertanyaan yang akan saya sampaikan bertujuan untuk menggali kecocokan profil Andauntuk menjadi finalis.</h4>
+						<h4>Pertanyaan-pertanyaan yang akan saya sampaikan bertujuan untuk menggali kecocokan profil Anda untuk menjadi finalis.</h4>
 						<h4>Harap berikan  jawaban yang jelas dan padat.</h4>
 					</div>			
 				</div>						
 				<div class="box">
 					<div class="box-header"><h3>INTEREST PROMPT</h3></div>
 					<div class="box-body">					
-						<h3>1. Diantara 3 interest ini, mana yang paling lo banget ?</h3>
+						<h3>1. Diantara 3 interest ini, mana yang paling anda banget ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'i11','name'=>'i1','value'=>'1','checked'=>($candidate->i1==1?true:false))) ?>
@@ -459,13 +459,13 @@
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'i13','name'=>'i1','value'=>'3','checked'=>($candidate->i1==3?true:false))) ?>
-								Traveling (Flashpacker, Backpacker, Glam Travel dan Semacamnya)
+								Treveling (Flashpacker, Backpacker, Glam Travel dan Semacamnya)
 							</label>
 						</div>
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[0])?$note[0]:'') ?>">
 						</div>	
-						<h3>2. Menurut lo Barcelona identik sama apa ?</h3>
+						<h3>2. Menurut anda Barcelona identik sama apa ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'i21','name'=>'i2','value'=>'1','checked'=>($candidate->i2==1?true:false))) ?>
@@ -481,7 +481,7 @@
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'i23','name'=>'i2','value'=>'3','checked'=>($candidate->i2==3?true:false))) ?>
-								Traveling / Bola / Jawaban lain selain Nightlife dan Motorsport
+								Treveling / Bola / Jawaban lain selain Nightlife dan Motorsport
 							</label>
 						</div>				
 						<div class="form-group">
@@ -514,7 +514,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[2])?$note[2]:'') ?>">
 						</div>							
-						<h3>2. Apa yang menurut lo menarik dengan dunia Motorsport?</h3>
+						<h3>2. Apa yang menurut anda menarik dengan dunia Motorsport?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'m21','name'=>'m2','value'=>'1','checked'=>($candidate->m2==1?true:false))) ?>
@@ -536,7 +536,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[3])?$note[3]:'') ?>">
 						</div>							
-						<h3>3. Lo lebih suka motor classic, trail, atau motor sport ?</h3>
+						<h3>3. Anda lebih suka motor classic, trail, atau motor sport ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'m31','name'=>'m3','value'=>'1','checked'=>($candidate->m3==1?true:false))) ?>
@@ -580,7 +580,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[5])?$note[5]:'') ?>">
 						</div>							
-						<h3>5. Bisa sebutin nama nama pembalap moto GP yang lo tahu?</h3>
+						<h3>5. Bisa sebutin nama nama pembalap moto GP yang anda tahu?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'m51','name'=>'m5','value'=>'1','checked'=>($candidate->m5==1?true:false))) ?>
@@ -607,7 +607,7 @@
 				<div class="box">
 					<div class="box-header"><h3>NIGHTLIFE</h3></div>
 					<div class="box-body">					
-						<h3>1. Lo suka ke Clubnongkrong di Bar ?</h3>
+						<h3>1. Anda suka ke Clubnongkrong di Bar ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'n11','name'=>'n1','value'=>'1','checked'=>($candidate->n1==1?true:false))) ?>
@@ -651,7 +651,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[8])?$note[8]:'') ?>">
 						</div>							
-						<h3>3. Genre dance musik apa yang lo suka ?</h3>
+						<h3>3. Genre dance musik apa yang anda suka ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'n31','name'=>'n3','value'=>'1','checked'=>($candidate->n3==1?true:false))) ?>
@@ -673,7 +673,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[9])?$note[9]:'') ?>">
 						</div>							
-						<h3>4. DJ/EDM Artist favorit lo siapa ?</h3>
+						<h3>4. DJ/EDM Artist favorit anda siapa ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'n41','name'=>'n4','value'=>'1','checked'=>($candidate->n4==1?true:false))) ?>
@@ -722,7 +722,7 @@
 				<div class="box">
 					<div class="box-header"><h3>TRAVELING</h3></div>
 					<div class="box-body">					
-						<h3>1. Dalam setahun lo bisa berapa kali traveling ?</h3>
+						<h3>1. Dalam setahun anda bisa berapa kali treveling ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'t11','name'=>'t1','value'=>'1','checked'=>($candidate->t1==1?true:false))) ?>
@@ -744,7 +744,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[12])?$note[12]:'') ?>">
 						</div>							
-						<h3>2. Biasanya lo kalau traveling sama siapa ?</h3>
+						<h3>2. Biasanya anda kalau treveling sama siapa ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'t21','name'=>'t2','value'=>'1','checked'=>($candidate->t2==1?true:false))) ?>
@@ -766,7 +766,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[13])?$note[13]:'') ?>">
 						</div>							
-						<h3>3. Kenapa lo traveling ?</h3>
+						<h3>3. Kenapa anda treveling ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'t31','name'=>'t3','value'=>'1','checked'=>($candidate->t3==1?true:false))) ?>
@@ -788,7 +788,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[14])?$note[14]:'') ?>">
 						</div>							
-						<h3>4. Saat lo traveling, agenda lo ngapain aja ?</h3>
+						<h3>4. Saat anda treveling, agenda anda ngapain aja ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'t41','name'=>'t4','value'=>'1','checked'=>($candidate->t4==1?true:false))) ?>
@@ -810,7 +810,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[15])?$note[15]:'') ?>">
 						</div>							
-						<h3>5. Destinasi traveling paling jauh yang pernah lo datangi dimana ?</h3>
+						<h3>5. Destinasi treveling paling jauh yang pernah anda datangi dimana ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'t51','name'=>'t5','value'=>'1','checked'=>($candidate->t5==1?true:false))) ?>
