@@ -695,7 +695,7 @@
 						<div class="form-group">
 							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[10])?$note[10]:'') ?>">
 						</div>							
-						<h3>5. EDM Event / party apa yang terakhirlo datengin ? Kapan ?</h3>
+						<h3>5. EDM Event / party apa yang terakhir anda datengin ? Kapan ?</h3>
 						<div class="radio">
 							<label>
 								<?php echo form_radio(array('id'=>'n51','name'=>'n5','value'=>'1','checked'=>($candidate->n5==1?true:false))) ?>
