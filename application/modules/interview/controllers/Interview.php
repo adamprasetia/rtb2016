@@ -81,9 +81,13 @@ class Interview extends MY_Controller {
 			$xdata['breadcrumb']	= 'interview'.get_query_string();
 			$xdata['callhis']		= $this->interview_model->get_call($id);
 			$xdata['action']		= 'interview/phone/'.$id.get_query_string();
+			$xdata['note'] = explode("-|-", $xdata['candidate']->note);
+			// echo "<pre>";var_dump($xdata['note']);exit;
 			$data['content'] = $this->load->view('interview_form',$xdata,true);
 			$this->load->view('template',$data);
 		}else{
+			$note = $this->input->post('note');
+			$note = implode("-|-", $note);
 			$data = array(
 				'status'=>$this->input->post('status'),
 				'audit'=>$this->input->post('audit'),
@@ -141,6 +145,7 @@ class Interview extends MY_Controller {
 				't3'=>$this->input->post('t3'),
 				't4'=>$this->input->post('t4'),
 				't5'=>$this->input->post('t5'),
+				'note'=>$note,
 				'remark'=>$this->input->post('remark'),
 				'overall'=>$this->input->post('overall'),
 			);

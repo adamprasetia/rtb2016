@@ -461,7 +461,10 @@
 								<?php echo form_radio(array('id'=>'i13','name'=>'i1','value'=>'3','checked'=>($candidate->i1==3?true:false))) ?>
 								Traveling (Flashpacker, Backpacker, Glam Travel dan Semacamnya)
 							</label>
-						</div>				
+						</div>
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[0])?$note[0]:'') ?>">
+						</div>	
 						<h3>2. Menurut lo Barcelona identik sama apa ?</h3>
 						<div class="radio">
 							<label>
@@ -481,6 +484,9 @@
 								Traveling / Bola / Jawaban lain selain Nightlife dan Motorsport
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[1])?$note[1]:'') ?>">
+						</div>							
 					</div>				
 				</div>						
 				<div class="box">
@@ -505,6 +511,9 @@
 								Jawaban positive (e.g Punya motor, Jawaban lebih spesifik dan menunjukkan mendalami Dunia Motor)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[2])?$note[2]:'') ?>">
+						</div>							
 						<h3>2. Apa yang menurut lo menarik dengan dunia Motorsport?</h3>
 						<div class="radio">
 							<label>
@@ -524,6 +533,9 @@
 								Jawaban positive (Jawaban spesifik, e.g Karena suka dengan adrenaline rush)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[3])?$note[3]:'') ?>">
+						</div>							
 						<h3>3. Lo lebih suka motor classic, trail, atau motor sport ?</h3>
 						<div class="radio">
 							<label>
@@ -543,6 +555,9 @@
 								Motor sport
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[4])?$note[4]:'') ?>">
+						</div>							
 						<h3>4. Sering nonton MotoGP ?</h3>
 						<div class="radio">
 							<label>
@@ -562,6 +577,9 @@
 								Selalu menonton, Tidak pernah ketinggalan
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[5])?$note[5]:'') ?>">
+						</div>							
 						<h3>5. Bisa sebutin nama nama pembalap moto GP yang lo tahu?</h3>
 						<div class="radio">
 							<label>
@@ -581,6 +599,9 @@
 								Bisa menyebutkan lebih dari 5 Nama
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[6])?$note[6]:'') ?>">
+						</div>							
 					</div>				
 				</div>						
 				<div class="box">
@@ -605,6 +626,9 @@
 								Jawaban positif (e.g Iya, sering, suka)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[7])?$note[7]:'') ?>">
+						</div>							
 						<h3>2. Seringnya clubbing / nongkrong dimana ?</h3>
 						<div class="radio">
 							<label>
@@ -624,6 +648,9 @@
 								Menyebutkan lebih dari 5 tempat
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[8])?$note[8]:'') ?>">
+						</div>							
 						<h3>3. Genre dance musik apa yang lo suka ?</h3>
 						<div class="radio">
 							<label>
@@ -643,6 +670,9 @@
 								Jawaban spesifik (e.g Dubstep, Downtempo, Trance, Deep House, Disco, RnB)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[9])?$note[9]:'') ?>">
+						</div>							
 						<h3>4. DJ/EDM Artist favorit lo siapa ?</h3>
 						<div class="radio">
 							<label>
@@ -662,6 +692,9 @@
 								Nama yang disebutkan spesifik (e.g Madeon, Aly & Fila, Fedde Le Grand) 
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[10])?$note[10]:'') ?>">
+						</div>							
 						<h3>5. EDM Event / party apa yang terakhirlo datengin ? Kapan ?</h3>
 						<div class="radio">
 							<label>
@@ -681,6 +714,9 @@
 								Event/ party yang didatangi kurang lebih dalam 4 bulan ke belakang
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[11])?$note[11]:'') ?>">
+						</div>							
 					</div>				
 				</div>						
 				<div class="box">
@@ -705,6 +741,9 @@
 								Lebih dari 5 kali setahun
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[12])?$note[12]:'') ?>">
+						</div>							
 						<h3>2. Biasanya lo kalau traveling sama siapa ?</h3>
 						<div class="radio">
 							<label>
@@ -724,6 +763,9 @@
 								Sendiri / teman
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[13])?$note[13]:'') ?>">
+						</div>							
 						<h3>3. Kenapa lo traveling ?</h3>
 						<div class="radio">
 							<label>
@@ -743,6 +785,9 @@
 								Jawaban yang diberikan sangat spesifik (e.g Merasakan makanan local, pengalaman mirip film)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[14])?$note[14]:'') ?>">
+						</div>							
 						<h3>4. Saat lo traveling, agenda lo ngapain aja ?</h3>
 						<div class="radio">
 							<label>
@@ -762,6 +807,9 @@
 								Jawaban yang diberikan elaborasinya dalam (e.g Merasakan menjadi penduduk setempat)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[15])?$note[15]:'') ?>">
+						</div>							
 						<h3>5. Destinasi traveling paling jauh yang pernah lo datangi dimana ?</h3>
 						<div class="radio">
 							<label>
@@ -781,6 +829,9 @@
 								Jawaban tempat turis yang spesifik dan jauh (e.g Spanyol, Norwegia, Islandia, Raja Ampat, Kanada)
 							</label>
 						</div>				
+						<div class="form-group">
+							<input name="note[]" class="form-control input-sm" maxlength="100" value="<?php echo (isset($note[16])?$note[16]:'') ?>">
+						</div>							
 					</div>				
 				</div>						
 				<div class="box">
